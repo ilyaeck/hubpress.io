@@ -2,9 +2,12 @@
   "meta": {
     "username": "ilyaeck",
     "repositoryName": "ilyaeck.github.io",
-    "branch": "master"
+    "branch": "master",
+    "delay": "100"
   },
+  "site": {},
+  "socialnetwork": {},
   "theme": {
-    "name": "Casper"
+    "name": "casper"
   }
 }

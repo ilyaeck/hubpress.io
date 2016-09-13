@@ -5,7 +5,11 @@
     "branch": "master",
     "delay": "100"
   },
-  "site": {},
+  "site": {
+    "title": "IE ",
+    "description": "Ilya Eckstein's blog",
+    "postsPerPage": "2"
+  },
   "socialnetwork": {},
   "theme": {
     "name": "casper"

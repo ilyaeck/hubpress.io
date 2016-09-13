@@ -1,4 +1,5 @@
 = Too deep or not too deep? 
+:hp-tags: Deep Learning, NLP
 
 egshte
 fx gd

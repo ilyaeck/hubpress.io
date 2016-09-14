@@ -1,6 +1,7 @@
-= Natural language modeling: How deep is too deep? -- Part I -- 
+= Natural language modeling: How deep is too deep?
 :hp-tags: Deep Learning, NLP
-Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily!
+
+[.lead] Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily!
 
 Recently, a new paper from Google research appeared on arXiv [1], immediately catching the attention of the NLP community. Focusing 
 on the problem of Natural Language Inference (NLI), the paper made a convincing case for the overall superiority of ... *shallow* 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[IE ]]></title><description><![CDATA[Ilya Eckstein's blog]]></description><link>https://ilyaeck.github.io</link><generator>RSS for Node</generator><lastBuildDate>Wed, 14 Sep 2016 20:31:34 GMT</lastBuildDate><atom:link href="https://ilyaeck.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Natural language modeling: How deep is too deep?]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[IE ]]></title><description><![CDATA[Ilya Eckstein's blog]]></description><link>https://ilyaeck.github.io</link><generator>RSS for Node</generator><lastBuildDate>Wed, 14 Sep 2016 20:34:49 GMT</lastBuildDate><atom:link href="https://ilyaeck.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Natural language modeling: How deep is too deep?]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>TL;DR</strong> Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily!</p>
@@ -24,7 +24,7 @@ helped by the success of the seminal Word2Vec[6] (followed by Glove[7] and the l
 popular DL libraries such as TensorFlow, Keras, DL4J, etc. Among other big companies, Google has been at the forefront of both open-sourcing DL techniques (with <a href="https://www.tensorflow.org/">TensorFlow</a>) and adopting DL architectures in production (see, e.g., SmartReply[9]).</p>
 </div>
 <div class="paragraph">
-<p>So, you ask, isn&#8217;t that enough? Well, dear friend: if you are reading this, chances are, you are not Google! And as a result, you
+<p>So - you ask - isn&#8217;t that enough? Where do I sign up?! Well, dear friend: if you are reading this, chances are, you are not Google! And as a result, you
 don&#8217;t have the same massive amounts of training data, nor their virtually unlimited computational resources. To the rest of us,
 it is important to understand the performance/computation tradeoffs that come with DL  -  which is what this post is really about.</p>
 </div>
@@ -81,9 +81,10 @@ Why is it mentioned in the same category as machine translation? Both can be cas
 <div class="paragraph">
 <p>So why hs DL been more successful in ASR and vision than NLP/NLU? That&#8217;s a topic for another post!</p>
 </div>
+<div class="sect3">
+<h4 id="_references">References</h4>
 <div class="paragraph">
-<p><strong>References</strong>
-[1] <a href="https://arxiv.org/pdf/1607.01759v2.pdf">Bag of Tricks for Efficient Text Classification</a>, A. Joulin, E. Grave, P. Bojanowski, T. Mikolov</p>
+<p>[1] <a href="https://arxiv.org/pdf/1607.01759v2.pdf">Bag of Tricks for Efficient Text Classification</a>, A. Joulin, E. Grave, P. Bojanowski, T. Mikolov</p>
 </div>
 <div class="paragraph">
 <p>[3] <a href="http://arxiv.org/abs/1608.04207v1">Fine-grained Analysis of Sentence Embeddings Using Auxiliary Prediction Tasks</a>, Yossi Adi, Einat Kermany, Yonatan Belinkov, Ofer Lavi, Yoav Goldberg
@@ -94,5 +95,6 @@ Why is it mentioned in the same category as machine translation? Both can be cas
 [8] Glove
 [9] Smart Reply
 [10] <a href="http://www.foldl.me/2016/solving-language/" class="bare">http://www.foldl.me/2016/solving-language/</a></p>
+</div>
 </div>
 </div>]]></description><link>https://ilyaeck.github.io/2016/09/12/Natural-language-modeling-How-deep-is-too-deep.html</link><guid isPermaLink="true">https://ilyaeck.github.io/2016/09/12/Natural-language-modeling-How-deep-is-too-deep.html</guid><category><![CDATA[Deep Learning]]></category><category><![CDATA[ NLP]]></category><dc:creator><![CDATA[Ilya Eckstein ]]></dc:creator><pubDate>Mon, 12 Sep 2016 00:00:00 GMT</pubDate></item></channel></rss>

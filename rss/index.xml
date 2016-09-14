@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[IE ]]></title><description><![CDATA[Ilya Eckstein's blog]]></description><link>https://ilyaeck.github.io</link><generator>RSS for Node</generator><lastBuildDate>Wed, 14 Sep 2016 20:40:43 GMT</lastBuildDate><atom:link href="https://ilyaeck.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Natural language modeling: How deep is too deep?]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[IE ]]></title><description><![CDATA[Ilya Eckstein's blog]]></description><link>https://ilyaeck.github.io</link><generator>RSS for Node</generator><lastBuildDate>Wed, 14 Sep 2016 22:25:16 GMT</lastBuildDate><atom:link href="https://ilyaeck.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Natural language modeling: How deep is too deep?]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>TL;DR</strong> Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily!</p>
@@ -24,12 +24,7 @@ helped by the success of the seminal Word2Vec[6] (followed by Glove[7] and the l
 popular DL libraries such as TensorFlow, Keras, DL4J, etc. Among other big companies, Google has been at the forefront of both open-sourcing DL techniques (with <a href="https://www.tensorflow.org/">TensorFlow</a>) and adopting DL architectures in production (see, e.g., SmartReply[9]).</p>
 </div>
 <div class="paragraph">
-<p>So - you ask - isn&#8217;t that enough? Where do I sign up?! Well, dear friend: if you are reading this, chances are, you are not Google! And as a result, you
-don&#8217;t have the same massive amounts of training data, nor their virtually unlimited computational resources. To the rest of us,
-it is important to understand the performance/computation tradeoffs that come with DL  -  which is what this post is really about.</p>
-</div>
-<div class="paragraph">
-<p>So let us look at some key problems one by one. In this post, we will focus on text classification.</p>
+<p>So - you ask - isn&#8217;t that enough? Where do I sign up?! Well, dear friend: if you are reading this, chances are, you are not Google and you likely have neither similarly massive amounts of training data nor their virtually unlimited computational resources. For the rest of us, it is important to understand the performance/computation tradeoffs that come with DL  -  which is what this post is really about. So let us look at some key problems one by one. In this post, we will focus on text classification.</p>
 </div>
 </div>
 </div>
@@ -43,29 +38,49 @@ For text classification, we typically have 3 options:</p>
 <div class="ulist disc">
 <ul class="disc">
 <li>
-<p>Good old classifiers such as Random Forests (RF) or Logistic Regression, using a Bag of Word (BoW) representation such as TF/IDF or averaged Continuous-BOW word vectors.</p>
+<p>Good old classifiers such as Random Forests (RF) or Logistic Regression (LR). In this case, we&#8217;ll typically use a Bag of Word (BoW) representation such as TF/IDF.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: well understood models, relatively intutitive features you can control, speed.</p>
 </li>
 <li>
-<p>Shallow neural networks such as Facebook&#8217;s fastText</p>
+<p>Cons: the features are "semantically blind": we&#8217;ll miss any words or synonyms that are not in the training set. Also, to push performance, manual feature engineering may be required.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Deep networks such as RNNs/LSTMs or CNNs.</p>
+<p>Shallow Neural Networks (NNs) such as Facebook&#8217;s <a href="https://github.com/facebookresearch/fastText">fastText</a>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: still fast, no feature engineering, possibly inherits Word2Vec&#8217;s nice semantic properties (more on that below).</p>
+</li>
+<li>
+<p>Cons: relatively black box (as all NNs are, whether deep or shallow): little intuition or control ober the features.</p>
+</li>
+<li>
+<p>Insights:  whether deep or shallow, there is one important distinction about NNs. Many traditional classification methods aim to learn a feature space partitioning function
+(as a means to separate samples of different classes), leaving feature engineering to the application developer. Conversely, NNs
+actually do more than that: they seek to learn the optimal representation (read: N-dimensional vector encoding of your data points:
+pixels, words, sentences, pages, what have you&#8230;&#8203;) so as to minimize some loss function on the training set. That learned representation is a byproduct that can sometimes be more valuable than the main task! For instance, in Word2Vec, the task is predicting a word based on the words around it (or vice-versa), which admittedly is not a very common problem in reality. However, as a byproduct, we get word vectors
+with very interesting semantic properties (link) that become handy in text classification and other application.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Deep neural networks such as RNNs/LSTMs or CNNs. Let us discuss this option in more detail below.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for sequences of arbitrary length.
-Which makes particularly attractive tool for modeling text.
-(2 sentences on RNN + picture: vector representation, etc.). However, in practice, RNNs can be hard to train and for small to medium-sized training datasest
-, good old classifiers such as Logistic Regression or Random Forest (using a bag of words representation) can often deliver similar or even superior
+<p>Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for sequences of arbitrary length. Which makes particularly attractive tool for modeling text.
+(2 sentences on RNN + picture: vector representation, etc.). However, in practice, RNNs can be hard to train and for small to medium-sized training datasest: again, good old RF or LR can often deliver similar or even superior
 performance at a lower computational cost. Even in the Deep Learning category, RNNs have a strong competitor in ConvNets
 (a.k.a. Convolutional Neural Nets or CNNs) - just as long as your text can be treated as fixed length sequences, making them a suitable approach
-to represent and classify tweets, text messages, short user reviews, etc. Still, it&#8217;s too early to dismiss RNNs and their variants entirely.
-Here is an important distinction to realize. Many traditional classification methods aim to learn a feature space partitioning function
-(as a means to separate samples of different classes), leaving feature engineering to the application developer. Conversely, neural networks
-actually do more than that: they seek to learn the optimal representation (read: N-dimensional vector encoding of your data points:
-pixels, words, sentences, pages, what have you&#8230;&#8203;) so as to minimize some loss function on the training set. That learned representation is a byproduct that can sometimes be more valuable than the main task! For instance, in Word2Vec, the task is predicting a word based on the words around it (or vice-versa), which admittedly is not a very common problem in reality. However, as a byproduct, we get word vectors
-with very interesting semantic properties (link) that become handy in text classification and other application.</p>
+to represent and classify tweets, text messages, short user reviews, etc. Still, it&#8217;s too early to dismiss RNNs and their variants entirely.</p>
 </div>
 </div>
 <div class="sect2">
@@ -95,14 +110,28 @@ Why is it mentioned in the same category as machine translation? Both can be cas
 <p>[1] <a href="https://arxiv.org/pdf/1607.01759v2.pdf">Bag of Tricks for Efficient Text Classification</a>, A. Joulin, E. Grave, P. Bojanowski, T. Mikolov</p>
 </div>
 <div class="paragraph">
-<p>[3] <a href="http://arxiv.org/abs/1608.04207v1">Fine-grained Analysis of Sentence Embeddings Using Auxiliary Prediction Tasks</a>, Yossi Adi, Einat Kermany, Yonatan Belinkov, Ofer Lavi, Yoav Goldberg
-[4] <a href="http://arxiv.org/pdf/1606.02858v2.pdf">A Thorough Examination of the CNN/Daily Mail Reading Comprehension Task</a>, Danqi Chen, Jason Bolton, Christopher D. Manning
-[5] <a href="http://arxiv.org/pdf/1606.01933v1.pdf">A Decomposable Attention Model for Natural Language Inference</a>, Ankur P. Parikh, Oscar Täckström, Dipanjan Das, Jakob Uszkoreit
-[6] Karpathy
-[7] Word2Vec
-[8] Glove
-[9] Smart Reply
-[10] <a href="http://www.foldl.me/2016/solving-language/" class="bare">http://www.foldl.me/2016/solving-language/</a></p>
+<p>[3] <a href="http://arxiv.org/abs/1608.04207v1">Fine-grained Analysis of Sentence Embeddings Using Auxiliary Prediction Tasks</a>, Yossi Adi, Einat Kermany, Yonatan Belinkov, Ofer Lavi, Yoav Goldberg</p>
+</div>
+<div class="paragraph">
+<p>[4] <a href="http://arxiv.org/pdf/1606.02858v2.pdf">A Thorough Examination of the CNN/Daily Mail Reading Comprehension Task</a>, Danqi Chen, Jason Bolton, Christopher D. Manning</p>
+</div>
+<div class="paragraph">
+<p>[5] <a href="http://arxiv.org/pdf/1606.01933v1.pdf">A Decomposable Attention Model for Natural Language Inference</a>, Ankur P. Parikh, Oscar Täckström, Dipanjan Das, Jakob Uszkoreit</p>
+</div>
+<div class="paragraph">
+<p>[6] Karpathy</p>
+</div>
+<div class="paragraph">
+<p>[7] Word2Vec</p>
+</div>
+<div class="paragraph">
+<p>[8] Glove</p>
+</div>
+<div class="paragraph">
+<p>[9] Smart Reply</p>
+</div>
+<div class="paragraph">
+<p>[10] <a href="http://www.foldl.me/2016/solving-language/" class="bare">http://www.foldl.me/2016/solving-language/</a></p>
 </div>
 </div>
 </div>]]></description><link>https://ilyaeck.github.io/2016/09/12/Natural-language-modeling-How-deep-is-too-deep.html</link><guid isPermaLink="true">https://ilyaeck.github.io/2016/09/12/Natural-language-modeling-How-deep-is-too-deep.html</guid><category><![CDATA[Deep Learning]]></category><category><![CDATA[ NLP]]></category><dc:creator><![CDATA[Ilya Eckstein ]]></dc:creator><pubDate>Mon, 12 Sep 2016 00:00:00 GMT</pubDate></item></channel></rss>

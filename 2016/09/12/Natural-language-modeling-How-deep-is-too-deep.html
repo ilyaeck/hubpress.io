@@ -12,7 +12,7 @@
 
     <link rel="shortcut icon" href="https://ilyaeck.github.io/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="//ilyaeck.github.io/themes/casper/assets/css/screen.css?v=1473878289794" />
+    <link rel="stylesheet" type="text/css" href="//ilyaeck.github.io/themes/casper/assets/css/screen.css?v=1473884061149" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
 
     <link rel="canonical" href="https://ilyaeck.github.io/2016/09/12/Natural-language-modeling-How-deep-is-too-deep.html" />
@@ -21,14 +21,14 @@
     <meta property="og:site_name" content="IE " />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Natural language modeling: How deep is too deep?" />
-    <meta property="og:description" content="[.lead] Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily! Recently, a new paper from Google research appeared on arXiv [1], immediately catching the attention of the NLP community. Focusing on the problem of Natural Language Inference (NLI), the paper made a convincing case for" />
+    <meta property="og:description" content="TL;DR Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily! Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title Bag of Tricks for Efficient Text Classification[1], promptly catching the NLP community&amp;#8217;s attentuion. Even more intruguingly," />
     <meta property="og:url" content="https://ilyaeck.github.io/2016/09/12/Natural-language-modeling-How-deep-is-too-deep.html" />
     <meta property="article:tag" content="Deep Learning" />
     <meta property="article:tag" content=" NLP" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Natural language modeling: How deep is too deep?" />
-    <meta name="twitter:description" content="[.lead] Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily! Recently, a new paper from Google research appeared on arXiv [1], immediately catching the attention of the NLP community. Focusing on the problem of Natural Language Inference (NLI), the paper made a convincing case for" />
+    <meta name="twitter:description" content="TL;DR Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily! Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title Bag of Tricks for Efficient Text Classification[1], promptly catching the NLP community&amp;#8217;s attentuion. Even more intruguingly," />
     <meta name="twitter:url" content="https://ilyaeck.github.io/2016/09/12/Natural-language-modeling-How-deep-is-too-deep.html" />
     
     <script type="application/ld+json">
@@ -64,27 +64,21 @@ null
         </header>
 
         <section class="post-content">
-            <div class="paragraph">
-<p>[.lead] Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily!</p>
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>TL;DR</strong> Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily!</p>
 </div>
 <div class="paragraph">
-<p>Recently, a new paper from Google research appeared on arXiv [1], immediately catching the attention of the NLP community. Focusing
-on the problem of Natural Language Inference (NLI), the paper made a convincing case for the overall superiority of &#8230;&#8203; <strong>shallow</strong>
-sentence representations - as opposed to deep ones - for NLU tasks such as NLI. Furthermore, this paper is but one example in
-the recent slew of results casting the efficacy of Deep NN architectures into question for text-related tasks. Not the least of which was
-FAIR&#8217;s FastText[2] (essentially a simple modification of the unsupervised Word2Vec algorithm to deal with supervised learning tasks).
-See also  here[3] and here[4].</p>
-</div>
-<div class="paragraph">
-<p>Not familiar with NLI and why it is an important litmus test? Fear not: this paragraph is about to fill you in!
-(For reasers familiar with the terminology, feel free to skip to the next paragraph).
-&#8592;-----&#8594;NLI EXPLANATION HERE &#8592;-------&#8594;</p>
+<p>Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title <a href="https://arxiv.org/pdf/1607.01759v2.pdf"><em>Bag of Tricks for Efficient Text Classification</em></a>[1], promptly catching the NLP community&#8217;s attentuion. Even more intruguingly, FAIR soon followed up with an open source implementation a.k.a. <a href="https://github.com/facebookresearch/fastText">fastText</a>[2]. In this work (essentially a simple modification of the unsupervised <a href="https://en.wikipedia.org/wiki/Word2vec">Word2Vec</a> algorithm to deal with supervised learning tasks), the authors made a convincing case for the frequent superiority of <strong>shallow</strong>
+text representations - as opposed to deep ones - for common NLU tasks such as sentence classification, dispelling the myth that "deeper is always better".
+Furthermore, this paper is but one example in the recent slew of results casting the "silver bullet" efficacy of complex neural architectures into question for text-related tasks (see some examples here[3], here[4] and here[5]).</p>
 </div>
 <div class="paragraph">
 <p>Hold on, you might say, isn&#8217;t Deep Learning a new disruptive force in AI, shown beyond doubt to be clearly superior to prior "shallow"
-learning approaches? Well, it depends who you ask. Ask a Computer Vision or a Speech Recognition guy, and you&#8217;ll get and enthusiastic Yes!
-In (computer) vision, novel DL archirectures (such as VGG, GoogleNet, Inception, etc.) have delivered extremely impressive
-results on ImageNet, CIFAR, even defying expectations of some DL champions in vision [5]. In ASR, commercial heaviweights such as
+learning approaches? Well, it depends who you ask. Ask a Computer Vision or a Speech Recognition expert, and you&#8217;ll get and enthusiastic Yes!
+In computer vision, novel DL archirectures (such as VGG, GoogleNet, Inception, etc.) have delivered extremely impressive
+results on ImageNet, CIFAR, even defying expectations of some computer vision DL champions[5]. In speech, commercial heavyweights such as
 Google and Baidu have longs since switch to DL architectures. It should only be natural to expect, then, to see the
 same trend in NLP/NLU, correct?
 Well, not so fast.</p>
@@ -92,31 +86,28 @@ Well, not so fast.</p>
 <div class="paragraph">
 <p>The tide of enthusiasm in Deep Learning has of course spilled over to the NLU community, triggering a massive conversion of both
 academics and industry practitioners to the newfound DL religion. Impressive results from other fields,
-helped by the success of the seminal Word2Vec[6] (followed by Glove[7] and the like) was too much to resist.
-RNN and LSTM have since become mainstream techniques, offered by
-popular DL libraries such as TensorFlow, Keras, DL4J, etc. Among other big companies, Google has been at the forefront of both
-migrating to DL for text machine learning tasks (such as translation[8], SmartReply[9], etc.)</p>
+helped by the success of the seminal Word2Vec[6] (followed by Glove[7] and the like) was too much to resist. RNN and LSTM have since become mainstream techniques, offered by
+popular DL libraries such as TensorFlow, Keras, DL4J, etc. Among other big companies, Google has been at the forefront of both open-sourcing DL techniques (with <a href="https://www.tensorflow.org/">TensorFlow</a>) and adopting DL architectures in production (see, e.g., SmartReply[9]).</p>
 </div>
 <div class="paragraph">
-<p>So, you ask? Isn&#8217;t that enough? Well, dear friend: if you are reading this, chances are, you are not Google! And as a result, you
+<p>So, you ask, isn&#8217;t that enough? Well, dear friend: if you are reading this, chances are, you are not Google! And as a result, you
 don&#8217;t have the same massive amounts of training data, nor their virtually unlimited computational resources. To the rest of us,
 it is important to understand the performance/computation tradeoffs that come with DL  -  which is what this post is really about.</p>
 </div>
 <div class="paragraph">
-<p>So let us look at some key problems one by one.</p>
+<p>So let us look at some key problems one by one. In this post, we will focus on text classification.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Subsection: Тext Classification <strong>*</strong>
-Common task with plenty of applications: search, intent classification, sentiment analysis, topic modeling
+</div>
+</div>
+<div class="sect2">
+<h3 id="__ext_classification">Тext Classification</h3>
+<div class="paragraph">
+<p>Clearly, text classification is a common task with plenty of applications: search, user intent determination, sentiment analysis, topic modeling
 (slightly different, but close), seqeuence labeling (related), etc.
 For text classification, we typically have 3 options:
-A) Logit or RF with nag of words or averaged word vectors.
+A) Logit or RF with bag of words or averaged word vectors.
 B) Shallow neural networks such as FastText
 C) Deep networks such as RNNs/LSTMs or CNNs.</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
 <p>Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for sequences of arbitrary length.
@@ -134,9 +125,11 @@ representation is a byproduct that can sometimes be more valuable than the main 
 based on the words around it (or vice-versa), which admittedly is not a very common problem in reality. However, as a byproduct, we get word vectors
 with very interesting semantic properties (link) that become handy in text classification and other application.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_nli_and_machine_translation">NLI and machine translation.</h3>
 <div class="paragraph">
-<p>Subsection: NLI and machine translation.
-Why is NLI important ? It&#8217;s a key problem in natural language understanding. Many other NLU problems can be reduced to NLI: such as summarization
+<p>Why is NLI important ? It&#8217;s a key problem in natural language understanding. Many other NLU problems can be reduced to NLI: such as summarization
 (given a piece of text and a suggested summary, does the former entail the latter), information extraction (does the text entail the extracted fact),
 question answering (does the data source entail a given question and answer pair) as well as machine machine translation
 (does a phrase in language A entail its given translation in language B and vice versa).
@@ -155,12 +148,19 @@ Why is it mentioned in the same category as machine translation? Both can be cas
 <p>So why hs DL been more successful in ASR and vision than NLP/NLU? That&#8217;s a topic for another post!</p>
 </div>
 <div class="paragraph">
-<p>[5] Karpathy
-[6] Word2Vec
-[7] Glove
-[8] Google Translate
+<p><strong>References</strong>
+[1] <a href="https://arxiv.org/pdf/1607.01759v2.pdf">Bag of Tricks for Efficient Text Classification</a>, A. Joulin, E. Grave, P. Bojanowski, T. Mikolov</p>
+</div>
+<div class="paragraph">
+<p>[4] <a href="http://arxiv.org/abs/1608.04207v1">Fine-grained Analysis of Sentence Embeddings Using Auxiliary Prediction Tasks</a>, Yossi Adi, Einat Kermany, Yonatan Belinkov, Ofer Lavi, Yoav Goldberg</p>
+</div>
+<div class="paragraph">
+<p>[6] Karpathy
+[7] Word2Vec
+[8] Glove
 [9] Smart Reply
 [10] <a href="http://www.foldl.me/2016/solving-language/" class="bare">http://www.foldl.me/2016/solving-language/</a></p>
+</div>
 </div>
         </section>
 
@@ -231,8 +231,8 @@ Why is it mentioned in the same category as machine translation? Both can be cas
         hljs.initHighlightingOnLoad();
       </script>
 
-    <script type="text/javascript" src="//ilyaeck.github.io/themes/casper/assets/js/jquery.fitvids.js?v=1473878289794"></script>
-    <script type="text/javascript" src="//ilyaeck.github.io/themes/casper/assets/js/index.js?v=1473878289794"></script>
+    <script type="text/javascript" src="//ilyaeck.github.io/themes/casper/assets/js/jquery.fitvids.js?v=1473884061149"></script>
+    <script type="text/javascript" src="//ilyaeck.github.io/themes/casper/assets/js/index.js?v=1473884061149"></script>
 
 </body>
 </html>

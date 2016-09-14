@@ -10,7 +10,12 @@
     "description": "Ilya Eckstein's blog",
     "postsPerPage": "2"
   },
-  "socialnetwork": {},
+  "socialnetwork": {
+    "email": "ilyaeck@gmail.com",
+    "twitter": "@ilyaeck",
+    "linkedin": "https://www.linkedin.com/in/ilya-eckstein-b806b8",
+    "github": "ilyaeck"
+  },
   "theme": {
     "name": "casper"
   }

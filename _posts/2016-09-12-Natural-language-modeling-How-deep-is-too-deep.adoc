@@ -30,7 +30,9 @@ So let us look at some key problems one by one. In this post, we will focus on t
 Clearly, text classification is a common task with plenty of applications: search, user intent determination, sentiment analysis, topic modeling 
 (slightly different, but close), seqeuence labeling (related), etc. 
 For text classification, we typically have 3 options: 
-Good old classifiers such as Random Forests (RF) or Logistic Regression, using a Bag of Word (BoW) representation such as TF/IDF or averaged Continuous-BOW word vectors.
+
+[disc]
+* Good old classifiers such as Random Forests (RF) or Logistic Regression, using a Bag of Word (BoW) representation such as TF/IDF or averaged Continuous-BOW word vectors.
 * Shallow neural networks such as Facebook's fastText
 * Deep networks such as RNNs/LSTMs or CNNs. 
 
@@ -44,9 +46,7 @@ to represent and classify tweets, text messages, short user reviews, etc. Still,
 Here is an important distinction to realize. Many traditional classification methods aim to learn a feature space partitioning function
 (as a means to separate samples of different classes), leaving feature engineering to the application developer. Conversely, neural networks
 actually do more than that: they seek to learn the optimal representation (read: N-dimensional vector encoding of your data points: 
-pixels, words, sentences, pages, what have you...) so as to minimize the (problem-dependent) loss function on the training set. That learned 
-representation is a byproduct that can sometimes be more valuable than the main task. For instance, in Word2Vec, the task is predicting a word 
-based on the words around it (or vice-versa), which admittedly is not a very common problem in reality. However, as a byproduct, we get word vectors 
+pixels, words, sentences, pages, what have you...) so as to minimize some loss function on the training set. That learned representation is a byproduct that can sometimes be more valuable than the main task! For instance, in Word2Vec, the task is predicting a word based on the words around it (or vice-versa), which admittedly is not a very common problem in reality. However, as a byproduct, we get word vectors 
 with very interesting semantic properties (link) that become handy in text classification and other application. 
 
 

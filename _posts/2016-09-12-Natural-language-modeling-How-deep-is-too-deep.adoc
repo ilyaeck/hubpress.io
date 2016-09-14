@@ -20,7 +20,7 @@ academics and industry practitioners to the newfound DL religion. Impressive res
 helped by the success of the seminal Word2Vec[6] (followed by Glove[7] and the like) was too much to resist. RNN and LSTM have since become mainstream techniques, offered by 
 popular DL libraries such as TensorFlow, Keras, DL4J, etc. Among other big companies, Google has been at the forefront of both open-sourcing DL techniques (with https://www.tensorflow.org/[TensorFlow]) and adopting DL architectures in production (see, e.g., SmartReply[9]). 
 
-So, you ask, isn't that enough? Well, dear friend: if you are reading this, chances are, you are not Google! And as a result, you 
+So - you ask - isn't that enough? Where do I sign up?! Well, dear friend: if you are reading this, chances are, you are not Google! And as a result, you 
 don't have the same massive amounts of training data, nor their virtually unlimited computational resources. To the rest of us, 
 it is important to understand the performance/computation tradeoffs that come with DL  -  which is what this post is really about. 
 
@@ -76,7 +76,7 @@ Subsection: Dialogue and chatbots!
 So why hs DL been more successful in ASR and vision than NLP/NLU? That's a topic for another post! 
 
 
-**References**
+==== References
 [1] https://arxiv.org/pdf/1607.01759v2.pdf[Bag of Tricks for Efficient Text Classification], A. Joulin, E. Grave, P. Bojanowski, T. Mikolov 
 [2] https://github.com/facebookresearch/fastText[Facebook's fastText on Github]
 [3] http://arxiv.org/abs/1608.04207v1[Fine-grained Analysis of Sentence Embeddings Using Auxiliary Prediction Tasks], Yossi Adi, Einat Kermany, Yonatan Belinkov, Ofer Lavi, Yoav Goldberg

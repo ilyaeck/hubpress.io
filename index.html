@@ -1,19 +1,76 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
     <title>IE</title>
-    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <link rel="shortcut icon" href="https://ilyaeck.github.io/favicon.ico">
+    <meta name="description" content="">
 
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:400,700,400italic,700italic|Open+Sans:400italic,700italic,700,400">
-    <link rel="stylesheet" type="text/css" href="//ilyaeck.github.io/themes/roon/assets/css/screen.css?v=1473892682327" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="IE">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="IE">
+    <meta property="og:description" content="">
+
+    <!-- <meta name="twitter:site" content="">
+
+<meta name="twitter:creator" content="">
+
+<meta name="google-site-verification" content="">
+
+<meta property="fb:admins" content="">
+ -->
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/apple-touch-icon-precomposed.png" rel="apple-touch-icon">
+
+    <link href="//fonts.googleapis.com/" rel="dns-prefetch">
+    <link href="//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Open+Sans:700,400&subset=latin,latin-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/main.min.css?v=1473892757533"/>
+    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/custom.css?v=1473892757533"/>
+    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/asciidoctor-foundation.css?v=1473892757533"/>
+
+
+
+
+    <script type="text/javascript">
+      var ga_ua = 'UA-XXXXX-X';
+      
+      var disqus_shortname = 'example';
+      
+      var enable_pjax = true;
+
+      // Pace Options
+      // ==============
+      window.paceOptions = {
+        catchupTime: 100,
+        minTime: 100,
+        elements: false,
+        restartOnRequestAfter: 500,
+        startOnPageLoad: false
+      }
+
+      // Ghostium Globals
+      // ==============
+      window.GHOSTIUM = {};
+      GHOSTIUM.haveGA = typeof ga_ua !== 'undefined' && ga_ua !== 'UA-XXXXX-X';
+      GHOSTIUM.haveDisqus = typeof disqus_shortname !== 'undefined' && disqus_shortname !== 'example';
+      GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
+    </script>
+
+    <script src="//ilyaeck.github.io/themes/ghostium/assets/js/head-scripts.min.js?v=1473892757533"></script>
 
     <link rel="canonical" href="https://ilyaeck.github.io/" />
     <meta name="referrer" content="origin" />
@@ -32,86 +89,125 @@ null
 
     <meta name="generator" content="HubPress" />
     <link rel="alternate" type="application/rss+xml" title="IE " href="https://ilyaeck.github.io/rss/" />
-</head>
-<body class="home-template  ">
+  </head>
+  <body class="home-template">
 
-    
-<header role="banner">
-    <div class="wrap">
-        <h1><a href="https://ilyaeck.github.io">IE </a></h1>
-        <hr>
-    </div>
-</header>
+    <button data-action="open-drawer" id="drawer-button" class="drawer-button"><i class="fa fa-bars"></i></button>
+    <nav tabindex="-1" class="drawer">
+      <div class="drawer-container">
+        <!--.drawer-search(role="search")-->
+        <ul role="navigation" class="drawer-list">
+          
+          <li class="drawer-list-item">
+            <a href="https://ilyaeck.github.io" data-pjax>
+              <i class="fa fa-home"></i>Home
+            </a>
+          </li>
+          <!-- <li class="drawer-list-item">
+            <a href="https://ilyaeck.github.io" title="IE " data-pjax>
+              <i class="fa fa-list-alt"></i>All posts
+            </a>
+          </li> -->
+          <li class="drawer-list-item">
+            <a href="https://ilyaeck.github.io/rss/">
+              <i class="fa fa-rss"></i>Subscribe to Feed
+            </a>
+          </li>
+          <li class="drawer-list-divider"></li>
+          <li class="drawer-list-item drawer-list-title">
+            Follow me
+          </li>
+          
+          
+          <li class="drawer-list-item">
+            <a href="https://twitter.com/ilyaeck" title="Twitter" target="_blank">
+              <i class="fa fa-twitter"></i>Twitter
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="https://github.com/ilyaeck" title="Github" target="_blank">
+              <i class="fa fa-github"></i>Github
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="https://www.linkedin.com/in/ilya-eckstein-b806b8" title="LinkedIn" target="_blank">
+              <i class="fa fa-linkedin"></i>LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
+    <div class="drawer-overlay"></div>
+    <main id="container" role="main" class="container">
+      <div class="surface">
+        <div class="surface-container">
+          <div data-pjax-container class="content">
+            
+<aside role="banner" class="cover">
+  <div  class="cover-image"></div>
+  <div class="cover-container">
+    <h1 class="cover-title"><a href="https://ilyaeck.github.io" title="IE ">IE </a></h1>
+    <p class="cover-description">Ilya Eckstein&#x27;s blog</p>
+  </div>
+</aside>
 
-<article class="post tag-Deep-Learning tag-NLP ">
+<section class="wrapper" tabindex="0">
+  <div class="wrapper-container">
+    IE 
 
+    <section class="post-list">
+        <article itemscope itemtype="http://schema.org/BlogPosting"
+          role="article" class="post-item post tag-Deep-Learning tag-NLP">
+          <header class="post-item-header">
+            <h2 itemprop="name" class="post-item-title">
+              <a href="https://ilyaeck.github.io/2016/09/12/Natural-language-modeling-How-deep-is-too-deep.html" itemprop="url" data-pjax title="Natural language modeling: How deep is too deep?">
+                Natural language modeling: How deep is too deep?
+              </a>
+            </h2>
+          </header>
+          <section itemprop="description" class="post-item-excerpt">
+            <p>TL;DR Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily! Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title Bag of Tricks for&hellip;</p>
+          </section>
+          <footer class="post-item-footer">
+            <ul class="post-item-meta-list">
+              <li class="post-item-meta-item">
+                <time datetime="2016-09-12" itemprop="datePublished">
+                  3 days ago
+                </time>
+              </li>
+                <li class="post-item-meta-item">
+                  <span class="tags"><i class="fa fa-tags"></i>
+                      <span>
+                      <a href="https://ilyaeck.github.io/tag/Deep-Learning/">Deep Learning</a>, <a href="https://ilyaeck.github.io/tag/NLP/"> NLP</a></span>
+                  </span>
+                </li>
+              <li class="post-item-meta-item">
+                <a href="https://ilyaeck.github.io/2016/09/12/Natural-language-modeling-How-deep-is-too-deep.html#disqus_thread" data-pjax data-disqus-identifier="">Comments</a>
+              </li>
+            </ul>
+          </footer>
+        </article>
+    </section>
 
-    <div class="meta">
-        <time datetime="2016-09-12"><a href="https://ilyaeck.github.io/2016/09/12/Natural-language-modeling-How-deep-is-too-deep.html">September 12, 2016</a></time>
-    </div>
-
-    <header>
-        <h1><a href="https://ilyaeck.github.io/2016/09/12/Natural-language-modeling-How-deep-is-too-deep.html">Natural language modeling: How deep is too deep?</a></h1>
-    </header>
-
-    <div class="text">
-        <p>TL;DR Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily! Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title Bag of Tricks for Efficient Text Classification[1], promptly catching the NLP community&#8217;</p>
-        <a href="https://ilyaeck.github.io/2016/09/12/Natural-language-modeling-How-deep-is-too-deep.html" class="readmore">Continue Reading</a>
-    </div>
-</article>
-
-<nav class="pagination" role="navigation">
-    <span class="page-number">Page 1 of 1</span>
+      <nav role="pagination" class="post-list-pagination">
+  <span class="post-list-pagination-item post-list-pagination-item-current">Page 1 of 1</span>
 </nav>
 
 
-<footer role="contentinfo">
-    <div class="inner">
-        <div class="vcard">
-            <a href="https://ilyaeck.github.io/rss" id="btn_feed" class="btn" title="Feed" target="_blank">
-                <span aria-hidden="true" data-icon=")"></span>
-                <strong>Feed</strong>
-            </a>
+    <footer role="contentinfo" class="footer">
+      <p><small>Copyright &copy; <span itemprop="copyrightHolder">IE </span>. 2016. All Rights Reserved.</small></p>
+      <p><small><a href="http://ghostium.oswaldoacauan.com/" target="_blank">Ghostium Theme</a> by <a href="http://twitter.com/oswaldoacauan" target="_blank">@oswaldoacauan</a></small></p>
+      <p><small>Adapted by <a href="https://twitter.com/mgreau">Maxime Gréau</a></small></p>
+      <p><small>Published with <a href="http://hubpress.io">HubPress</a></small></p>
+    </footer>
+  </div>
+</section>
 
-
-            <div class="details">
-                <h4><a href="https://ilyaeck.github.io" class="url n">IE </a></h4>
-                <a href="https://ilyaeck.github.io" class="js-remove-domain-schema">https://ilyaeck.github.io</a><br>
-                <span>Published with <a href="http://hubpress.io">HubPress</a></span>
-            </div>
+          </div>
         </div>
-        <div id="user_bio">
-            <div class="inner">
-                Ilya Eckstein&#x27;s blog
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-
-
-    <script>
-
-
-        function no_schema_links () {
-            var links = document.querySelectorAll('.js-remove-domain-schema');
-            if (links) {
-                for (i = 0; i < links.length; ++i) {
-                    var link = links[i],
-                        text = link.innerHTML,
-                        no_schema = text.replace(/.*?:\/\//g, "");
-                    link.innerHTML = no_schema;
-                }
-            }
-        }
-
-        window.onload = function () {
-            no_schema_links();
-
-        }
-    </script>
+      </div>
+    </main>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
       <script type="text/javascript">
@@ -126,8 +222,8 @@ null
         hljs.initHighlightingOnLoad();
       </script>
 
+    <script src="//ilyaeck.github.io/themes/ghostium/assets/js/foot-scripts.min.js?v=1473892757533"></script>
 
 
-
-</body>
+  </body>
 </html>

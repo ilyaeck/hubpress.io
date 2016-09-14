@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[IE ]]></title><description><![CDATA[Ilya Eckstein's blog]]></description><link>https://ilyaeck.github.io</link><generator>RSS for Node</generator><lastBuildDate>Wed, 14 Sep 2016 20:14:21 GMT</lastBuildDate><atom:link href="https://ilyaeck.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Natural language modeling: How deep is too deep?]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[IE ]]></title><description><![CDATA[Ilya Eckstein's blog]]></description><link>https://ilyaeck.github.io</link><generator>RSS for Node</generator><lastBuildDate>Wed, 14 Sep 2016 20:20:44 GMT</lastBuildDate><atom:link href="https://ilyaeck.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Natural language modeling: How deep is too deep?]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>TL;DR</strong> Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily!</p>
@@ -39,9 +39,9 @@ it is important to understand the performance/computation tradeoffs that come wi
 <p>Clearly, text classification is a common task with plenty of applications: search, user intent determination, sentiment analysis, topic modeling
 (slightly different, but close), seqeuence labeling (related), etc.
 For text classification, we typically have 3 options:
-A) Logit or RF with bag of words or averaged word vectors.
-B) Shallow neural networks such as FastText
-C) Deep networks such as RNNs/LSTMs or CNNs.</p>
+. Good old classifiers such as Random Forests (RF) or Logistic Regression, using a Bag of Word (BoW) representation such as TF/IDF or averaged Continuous-BOW word vectors.
+. Shallow neural networks such as Facebook&#8217;s fastText
+. Deep networks such as RNNs/LSTMs or CNNs.</p>
 </div>
 <div class="paragraph">
 <p>Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for sequences of arbitrary length.

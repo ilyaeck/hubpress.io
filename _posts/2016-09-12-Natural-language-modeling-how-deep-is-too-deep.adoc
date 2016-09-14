@@ -1,6 +1,5 @@
-= Too deep or not too deep? 
+= Natural language modeling: how deep is too deep?
 :hp-tags: Deep Learning, NLP
 
-egshte
-fx gd
-
+[.lead]
+Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily!

@@ -30,9 +30,9 @@ So let us look at some key problems one by one. In this post, we will focus on t
 Clearly, text classification is a common task with plenty of applications: search, user intent determination, sentiment analysis, topic modeling 
 (slightly different, but close), seqeuence labeling (related), etc. 
 For text classification, we typically have 3 options: 
-. Good old classifiers such as Random Forests (RF) or Logistic Regression, using a Bag of Word (BoW) representation such as TF/IDF or averaged Continuous-BOW word vectors.  
-. Shallow neural networks such as Facebook's fastText
-. Deep networks such as RNNs/LSTMs or CNNs. 
+Good old classifiers such as Random Forests (RF) or Logistic Regression, using a Bag of Word (BoW) representation such as TF/IDF or averaged Continuous-BOW word vectors.
+* Shallow neural networks such as Facebook's fastText
+* Deep networks such as RNNs/LSTMs or CNNs. 
 
 Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for sequences of arbitrary length. 
 Which makes particularly attractive tool for modeling text. 
@@ -79,9 +79,9 @@ So why hs DL been more successful in ASR and vision than NLP/NLU? That's a topic
 **References**
 [1] https://arxiv.org/pdf/1607.01759v2.pdf[Bag of Tricks for Efficient Text Classification], A. Joulin, E. Grave, P. Bojanowski, T. Mikolov 
 [2] https://github.com/facebookresearch/fastText[Facebook's fastText on Github]
-[3] http://arxiv.org/pdf/1606.01933v1.pdf[A Decomposable Attention Model for Natural Language Inference] 
-[4] http://arxiv.org/abs/1608.04207v1[Fine-grained Analysis of Sentence Embeddings Using Auxiliary Prediction Tasks], Yossi Adi, Einat Kermany, Yonatan Belinkov, Ofer Lavi, Yoav Goldberg
-[5]
+[3] http://arxiv.org/abs/1608.04207v1[Fine-grained Analysis of Sentence Embeddings Using Auxiliary Prediction Tasks], Yossi Adi, Einat Kermany, Yonatan Belinkov, Ofer Lavi, Yoav Goldberg
+[4] http://arxiv.org/pdf/1606.02858v2.pdf[A Thorough Examination of the CNN/Daily Mail Reading Comprehension Task], Danqi Chen, Jason Bolton, Christopher D. Manning
+[5] http://arxiv.org/pdf/1606.01933v1.pdf[A Decomposable Attention Model for Natural Language Inference], Ankur P. Parikh, Oscar Täckström, Dipanjan Das, Jakob Uszkoreit
 [6] Karpathy
 [7] Word2Vec
 [8] Glove

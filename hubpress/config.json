@@ -11,10 +11,10 @@
     "postsPerPage": "2"
   },
   "socialnetwork": {
-    "email": "ilyaeck@gmail.com",
+    "email": "",
     "twitter": "@ilyaeck",
     "linkedin": "https://www.linkedin.com/in/ilya-eckstein-b806b8",
-    "github": "ilyaeck"
+    "github": "https://github.com/ilyaeck"
   },
   "theme": {
     "name": "ghostium"

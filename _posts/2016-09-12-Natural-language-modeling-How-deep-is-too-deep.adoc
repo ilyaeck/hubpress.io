@@ -82,7 +82,8 @@ So why hs DL been more successful in ASR and vision than NLP/NLU? That's a topic
 
 
 
-[1] http://arxiv.org/pdf/1606.01933v1.pdf [A Decomposable Attention Model for Natural Language Inference] 
+[1] 
+[2] http://arxiv.org/pdf/1606.01933v1.pdf [A Decomposable Attention Model for Natural Language Inference] 
 [2]
 [3]
 [4]

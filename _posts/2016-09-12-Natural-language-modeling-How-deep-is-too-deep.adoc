@@ -30,9 +30,9 @@ So let us look at some key problems one by one. In this post, we will focus on t
 Clearly, text classification is a common task with plenty of applications: search, user intent determination, sentiment analysis, topic modeling 
 (slightly different, but close), seqeuence labeling (related), etc. 
 For text classification, we typically have 3 options: 
-A) Logit or RF with bag of words or averaged word vectors.  
-B) Shallow neural networks such as FastText
-C) Deep networks such as RNNs/LSTMs or CNNs. 
+. Good old classifiers such as Random Forests (RF) or Logistic Regression, using a Bag of Word (BoW) representation such as TF/IDF or averaged Continuous-BOW word vectors.  
+. Shallow neural networks such as Facebook's fastText
+. Deep networks such as RNNs/LSTMs or CNNs. 
 
 Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for sequences of arbitrary length. 
 Which makes particularly attractive tool for modeling text. 

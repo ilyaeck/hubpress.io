@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[IE ]]></title><description><![CDATA[Ilya Eckstein's blog]]></description><link>https://ilyaeck.github.io</link><generator>RSS for Node</generator><lastBuildDate>Wed, 14 Sep 2016 20:34:49 GMT</lastBuildDate><atom:link href="https://ilyaeck.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Natural language modeling: How deep is too deep?]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[IE ]]></title><description><![CDATA[Ilya Eckstein's blog]]></description><link>https://ilyaeck.github.io</link><generator>RSS for Node</generator><lastBuildDate>Wed, 14 Sep 2016 20:40:02 GMT</lastBuildDate><atom:link href="https://ilyaeck.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Natural language modeling: How deep is too deep?]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>TL;DR</strong> Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily!</p>
@@ -38,10 +38,20 @@ it is important to understand the performance/computation tradeoffs that come wi
 <div class="paragraph">
 <p>Clearly, text classification is a common task with plenty of applications: search, user intent determination, sentiment analysis, topic modeling
 (slightly different, but close), seqeuence labeling (related), etc.
-For text classification, we typically have 3 options:
-Good old classifiers such as Random Forests (RF) or Logistic Regression, using a Bag of Word (BoW) representation such as TF/IDF or averaged Continuous-BOW word vectors.
-* Shallow neural networks such as Facebook&#8217;s fastText
-* Deep networks such as RNNs/LSTMs or CNNs.</p>
+For text classification, we typically have 3 options:</p>
+</div>
+<div class="ulist disc">
+<ul class="disc">
+<li>
+<p>Good old classifiers such as Random Forests (RF) or Logistic Regression, using a Bag of Word (BoW) representation such as TF/IDF or averaged Continuous-BOW word vectors.</p>
+</li>
+<li>
+<p>Shallow neural networks such as Facebook&#8217;s fastText</p>
+</li>
+<li>
+<p>Deep networks such as RNNs/LSTMs or CNNs.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for sequences of arbitrary length.
@@ -54,9 +64,7 @@ to represent and classify tweets, text messages, short user reviews, etc. Still,
 Here is an important distinction to realize. Many traditional classification methods aim to learn a feature space partitioning function
 (as a means to separate samples of different classes), leaving feature engineering to the application developer. Conversely, neural networks
 actually do more than that: they seek to learn the optimal representation (read: N-dimensional vector encoding of your data points:
-pixels, words, sentences, pages, what have you&#8230;&#8203;) so as to minimize the (problem-dependent) loss function on the training set. That learned
-representation is a byproduct that can sometimes be more valuable than the main task. For instance, in Word2Vec, the task is predicting a word
-based on the words around it (or vice-versa), which admittedly is not a very common problem in reality. However, as a byproduct, we get word vectors
+pixels, words, sentences, pages, what have you&#8230;&#8203;) so as to minimize some loss function on the training set. That learned representation is a byproduct that can sometimes be more valuable than the main task! For instance, in Word2Vec, the task is predicting a word based on the words around it (or vice-versa), which admittedly is not a very common problem in reality. However, as a byproduct, we get word vectors
 with very interesting semantic properties (link) that become handy in text classification and other application.</p>
 </div>
 </div>

@@ -38,9 +38,9 @@
     <link href="//fonts.googleapis.com/" rel="dns-prefetch">
     <link href="//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Open+Sans:700,400&subset=latin,latin-ext" rel="stylesheet">
 
-    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/main.min.css?v=1474064061258"/>
-    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/custom.css?v=1474064061258"/>
-    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/asciidoctor-foundation.css?v=1474064061258"/>
+    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/main.min.css?v=1474064790005"/>
+    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/custom.css?v=1474064790005"/>
+    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/asciidoctor-foundation.css?v=1474064790005"/>
 
 
 
@@ -70,7 +70,7 @@
       GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
     </script>
 
-    <script src="//ilyaeck.github.io/themes/ghostium/assets/js/head-scripts.min.js?v=1474064061258"></script>
+    <script src="//ilyaeck.github.io/themes/ghostium/assets/js/head-scripts.min.js?v=1474064790005"></script>
 
     <link rel="canonical" href="https://ilyaeck.github.io/2016/09/12/Natural-language-understanding-How-deep-is-too-deep.html" />
     <meta name="referrer" content="origin" />
@@ -251,7 +251,7 @@ For text classification, we typically have 3 options:</p>
 <p>Insights:  whether deep or shallow, there is one important distinction about NNs. Many traditional classification methods aim to learn a feature space partitioning function
 (as a means to separate samples of different classes), leaving feature engineering to the application developer. Conversely, NNs
 actually do more than that: they seek to <em>learn the optimal representation</em> (read: N-dimensional vector encoding of your data points:
-words, sentences, paragraphs, what have you&#8230;&#8203;) so as to minimize some loss function on the training set. That learned representation is a byproduct that can sometimes be more valuable than the main task! For instance, in <a href="https://en.wikipedia.org/wiki/Word2vec">Word2Vec</a>, the task is predicting a word based on the words around it (or vice-versa), which admittedly is not a very common problem in reality. However, as a byproduct, we get word vectors with some interesting semantic properties (e.gt) that become handy in text classification and other application.</p>
+words, sentences, paragraphs, what have you&#8230;&#8203;) so as to minimize some loss function on the training set. That learned representation is a byproduct that can sometimes be more valuable than the main task! For instance, in <a href="https://en.wikipedia.org/wiki/Word2vec">Word2Vec</a>, the task is predicting a word based on the words around it (or vice-versa), which admittedly is not a very common problem in reality. However, as a byproduct, we get word vectors with some interesting semantic properties (e.g., analogies such as the famous <em>king - man + woman = queen</em> <a href="https://www.technologyreview.com/s/541356/king-man-woman-queen-the-marvelous-mathematics-of-computational-linguistics/">example</a>) that become handy in text classification and other application.</p>
 </li>
 </ul>
 </div>
@@ -262,7 +262,7 @@ words, sentences, paragraphs, what have you&#8230;&#8203;) so as to minimize som
 </ul>
 </div>
 <div class="paragraph">
-<p>Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for <em>sequences of arbitrary length</em>. Which makes particularly attractive tool for modeling text.</p>
+<p>Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for <em>sequences of arbitrary length</em>. The basic RNN unit works by injesting and outputing one symbol at a time, where last timestep&#8217;s output is a new timestep&#8217;s input - see an illustration below. In other words, RNN units have memory short-term memory! Which makes particularly attractive tool for modeling text.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -389,7 +389,7 @@ For text prediction, a.k.a generative tasks, give Deep Learning a good look. For
         hljs.initHighlightingOnLoad();
       </script>
 
-    <script src="//ilyaeck.github.io/themes/ghostium/assets/js/foot-scripts.min.js?v=1474064061258"></script>
+    <script src="//ilyaeck.github.io/themes/ghostium/assets/js/foot-scripts.min.js?v=1474064790005"></script>
 
 
   </body>

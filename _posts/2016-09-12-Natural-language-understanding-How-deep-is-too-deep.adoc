@@ -40,7 +40,7 @@ words, sentences, paragraphs, what have you...) so as to minimize some loss func
 
 Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for _sequences of arbitrary length_. The basic RNN unit works by injesting and outputing one symbol at a time, where last timestep's output is also a new timestep's input - see the illustration below. In other words, RNN units have memory short-term memory! Which makes particularly attractive tool for modeling text. 
 
-image::rnn-unrolled-colah.png[rnn, 500, title="An unrolled recurrent neural network, image courtesy of Chris Olah"] 
+image::rnn-unrolled-colah.png[rnn, 600, role="center" title="An unrolled recurrent neural network, image courtesy of Chris Olah"] 
 
 
 However, in practice, RNNs can be hard to train and for small to medium-sized training datasest: again, good old RF or LR can often deliver similar or even superior 

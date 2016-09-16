@@ -1,7 +1,7 @@
-= Deep Language Modeling: Part II 
+= Language Modeling, Part II: Too Deep or Not Too Deep?  
 
-
-
+*Thanks for coming, but this post is not yet ready*
+Being written as we speak, come back again!
 
 
 

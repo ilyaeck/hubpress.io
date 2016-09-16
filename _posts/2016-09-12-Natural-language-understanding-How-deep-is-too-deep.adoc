@@ -1,30 +1,24 @@
-= Natural language modeling: How deep is too deep?
+= Natural language understanding: How deep is too deep?
 :hp-tags: Deep Learning, NLP
 
 *TL;DR* Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily!
 
-Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title https://arxiv.org/pdf/1607.01759v2.pdf[_Bag of Tricks for Efficient Text Classification_][1], promptly catching the NLP community's attentuion. Even more intruguingly, FAIR soon followed up with an open source implementation a.k.a. https://github.com/facebookresearch/fastText[fastText][2]. In this work (essentially a simple modification of the unsupervised https://en.wikipedia.org/wiki/Word2vec[Word2Vec] algorithm to deal with supervised learning tasks), the authors made a convincing case for the frequent superiority of *shallow* 
-text representations - as opposed to deep ones - for common NLU tasks such as sentence classification, dispelling the myth that "deeper is always better".  
+Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title https://arxiv.org/pdf/1607.01759v2.pdf[_Bag of Tricks for Efficient Text Classification_][1], promptly catching the NLP community's attentuion. Even more intruguingly, FAIR soon followed up with an open source implementation a.k.a. https://github.com/facebookresearch/fastText[fastText][2]. In this work (essentially a simple modification of the unsupervised https://en.wikipedia.org/wiki/Word2vec[Word2Vec] algorithm to deal with supervised learning tasks), the authors made a convincing case for the frequent superiority of _shallow* 
+networks - as opposed to deep ones - for common text understandig tasks such as sentence classification, dispelling the myth that "deeper is always better".  
 Furthermore, this paper is but one example in the recent slew of results casting the "silver bullet" efficacy of complex neural architectures into question for text-related tasks (see some examples here[3], here[4] and here[5]). 
 
-Hold on, you might say, isn't Deep Learning a new disruptive force in AI, shown beyond doubt to be clearly superior to prior "shallow"
+Surprised? After all, isn't Deep Learning a new disruptive force in AI, shown beyond doubt to be clearly superior to prior "shallow"
 learning approaches? Well, it depends who you ask. Ask a Computer Vision or a Speech Recognition expert, and you'll get and enthusiastic Yes!
-In computer vision, novel DL archirectures (such as VGG, GoogleNet, Inception, etc.) have delivered extremely impressive 
-results on ImageNet, CIFAR, even defying expectations of some computer vision DL champions[5]. In speech, commercial heavyweights such as 
-Google and Baidu have longs since switch to DL architectures. It should only be natural to expect, then, to see the 
-same trend in NLP/NLU, correct? 
-Well, not so fast. 
+In computer vision, novel DL archirectures (such as https://arxiv.org/abs/1409.1556[VGG], https://arxiv.org/abs/1409.4842[GoogleNet], https://arxiv.org/abs/1512.00567[Inception], etc.) have delivered extremely impressive 
+results on benchmarks such as http://image-net.org/[ImageNet] and https://www.cs.toronto.edu/~kriz/cifar.html[CIFAR], even defying expectations of some computer vision DL champions[5]. In speech, commercial heavyweights such as Google and Baidu have longs since switch to DL architectures. It should only be natural to expect, then, to see the 
+same trend in NLP/NLU, correct? Well, not so fast. 
 
 The tide of enthusiasm in Deep Learning has of course spilled over to the NLU community, triggering a massive conversion of both 
 academics and industry practitioners to the newfound DL religion. Impressive results from other fields, 
 helped by the success of the seminal Word2Vec[6] (followed by Glove[7] and the like) was too much to resist. RNN and LSTM have since become mainstream techniques, offered by 
-popular DL libraries such as TensorFlow, Keras, DL4J, etc. Among other big companies, Google has been at the forefront of both open-sourcing DL techniques (with https://www.tensorflow.org/[TensorFlow]) and adopting DL architectures in production (see, e.g., SmartReply[9]). 
+popular DL libraries such as TensorFlow, Keras, DL4J, etc. Among other big companies, Google has been at the forefront of both open-sourcing DL techniques (with https://www.tensorflow.org/[TensorFlow]) and adopting DL architectures in production (in the NLU domain, https://gmail.googleblog.com/2015/11/computer-respond-to-this-email.html[SmatrtReply][9] is one recent example). 
 
-So - you ask - isn't that enough? Where do I sign up?! Well, dear friend: if you are reading this, chances are, you are not Google! And as a result, you 
-don't have the same massive amounts of training data, nor their virtually unlimited computational resources. To the rest of us, 
-it is important to understand the performance/computation tradeoffs that come with DL  -  which is what this post is really about. 
-
-So let us look at some key problems one by one. In this post, we will focus on text classification. 
+So - you ask - isn't that enough? Where do I sign up?! Well, dear friend: if you are reading this, chances are, you are not Google and you likely have neither similarly massive amounts of training data nor their virtually unlimited computational resources. For the rest of us, it is important to understand the performance/computation tradeoffs that come with DL - which is what this post is really about. So let us look at some key problems one by one. In this post, we will focus on text classification. 
 
 === Тext Classification
 Clearly, text classification is a common task with plenty of applications: search, user intent determination, sentiment analysis, topic modeling 
@@ -32,61 +26,59 @@ Clearly, text classification is a common task with plenty of applications: searc
 For text classification, we typically have 3 options: 
 
 [disc]
-* Good old classifiers such as Random Forests (RF) or Logistic Regression, using a Bag of Word (BoW) representation such as TF/IDF or averaged Continuous-BOW word vectors.
-* Shallow neural networks such as Facebook's fastText
-* Deep networks such as RNNs/LSTMs or CNNs. 
+* Good old classifiers such as Random Forests (RF) or Logistic Regression (LR). In this case, we'll typically use a Bag of Word (BoW) representation such as TF/IDF. 
+** Pros: well understood models, relatively intutitive features you can control, speed. 
+** Cons: the features are "semantically blind": we'll miss any words or synonyms that are not in the training set. Also, to push performance, manual feature engineering may be required.  
+* Shallow Neural Networks (NNs) such as Facebook's https://github.com/facebookresearch/fastText[fastText].
+** Pros: still fast, no feature engineering, possibly inherits Word2Vec's nice semantic properties (more on that below). 
+** Cons: relatively black box (as all NNs are, whether deep or shallow): little intuition or control over the features.
+** Insights:  whether deep or shallow, there is one important distinction about NNs. Many traditional classification methods aim to learn a feature space partitioning function
+(as a means to separate samples of different classes), leaving feature engineering to the application developer. Conversely, NNs
+actually do more than that: they seek to _learn the optimal representation_ (read: N-dimensional vector encoding of your data points: 
+words, sentences, paragraphs, what have you...) so as to minimize some loss function on the training set. That learned representation is a byproduct that can sometimes be more valuable than the main task! For instance, in https://en.wikipedia.org/wiki/Word2vec[Word2Vec], the task is predicting a word based on the words around it (or vice-versa), which admittedly is not a very common problem in reality. However, as a byproduct, we get word vectors with some interesting semantic properties (e.gt) that become handy in text classification and other application. 
+* Deep neural networks such as RNNs/LSTMs or ConvNets. Let us discuss this option in more detail below. 
 
-Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for sequences of arbitrary length. 
-Which makes particularly attractive tool for modeling text. 
-(2 sentences on RNN + picture: vector representation, etc.). However, in practice, RNNs can be hard to train and for small to medium-sized training datasest 
-, good old classifiers such as Logistic Regression or Random Forest (using a bag of words representation) can often deliver similar or even superior 
-performance at a lower computational cost. Even in the Deep Learning category, RNNs have a strong competitor in ConvNets 
-(a.k.a. Convolutional Neural Nets or CNNs) - just as long as your text can be treated as fixed length sequences, making them a suitable approach 
-to represent and classify tweets, text messages, short user reviews, etc. Still, it's too early to dismiss RNNs and their variants entirely.  
-Here is an important distinction to realize. Many traditional classification methods aim to learn a feature space partitioning function
-(as a means to separate samples of different classes), leaving feature engineering to the application developer. Conversely, neural networks
-actually do more than that: they seek to learn the optimal representation (read: N-dimensional vector encoding of your data points: 
-pixels, words, sentences, pages, what have you...) so as to minimize some loss function on the training set. That learned representation is a byproduct that can sometimes be more valuable than the main task! For instance, in Word2Vec, the task is predicting a word based on the words around it (or vice-versa), which admittedly is not a very common problem in reality. However, as a byproduct, we get word vectors 
-with very interesting semantic properties (link) that become handy in text classification and other application. 
-
-
+Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for _sequences of arbitrary length_. Which makes particularly attractive tool for modeling text. 
+(2 sentences on RNN + picture: vector representation, etc.). However, in practice, RNNs can be hard to train and for small to medium-sized training datasest: again, good old RF or LR can often deliver similar or even superior 
+performance at a lower computational cost. Even in the Deep Learning category, RNNs have a strong competitor in Convolutional Neural Nets 
+(a.k.a. ConvNets or CNNs) - just as long as your text can be treated as fixed length sequences, making them a suitable approach to represent and classify tweets, text messages, short user reviews, etc. Still, it's too early to dismiss RNNs and their variants entirely. Where these networks (and particularly their more advanced variant called https://en.wikipedia.org/wiki/Long_short-term_memory[Long-Short Memory Networks or LSTMs]) begin to shine are other NLU tasks that often involve prediction (i.e., generative in nature) rather than "just" classification, a fundamentally discriminative task. So, let us look beyond classification. 
 
 
+=== Language modeling 
+Language modeling is a fundamental NLP task, central to important problems such as speech recognition and machine translation and instrumental in many other settings. In simple terms, the goal is, given a sequence of symbols (words or characters), to predict the next symbol (word or character), sometimes more than one. Ever experienced Google's search query autocomplete? There you go!
+
+It turns out that RNN/LSTM networks by now have a clear edge over n-gram baseline methods when it comes to predicting sequences. Karpathy's now famous post, http://karpathy.github.io/2015/05/21/rnn-effectiveness/[The unreasonable effectiveness of recurrent neural networks] has given us a glimpse into the power of character-based RNN language models, showcasing their "magic" in generating Shakespeare-like text and beyond - although as some people pointed out, some prior techniques are in fact capable of similar magic. Still, it as already been shown[10] that RNNs are capable of dramatically better performance, improving the language model https://en.wikipedia.org/wiki/Perplexity[perplexity] by *2x* over prior baselines -  even on large one-billion-words datasets. The caveat is expensive computation, but as GPUs keep getting cheaper, that's a fair trade-off.  
+
+This leads us to an interesting discussion on the applications of neural language models,  such as Machine Translation, Natural Language Inference and of course Chatbots(!), as well as their limitations - namely the lack of adequate _attention_ and _memory_ mechanism, and the recent attempts to address them. But that is a separate topic, and by now I have likely already exhausted your attention budget for this blog. No biggie, I am about to follow up in a separate post. As for the original question, _Do I need Deep Learning for NLU/NLP problem?_, here is a quick rule of thumb: 
+
+[TIP]
+For text prediction, a.k.a generative tasks, give Deep Learning a good look. For classification, a.k.a discriminative tasks, your mileage may vary. 
+
+In any case, remember, machine learning is an empirical discipline and no two datasets are alike. So you'll never know the answer for certain until you try!
 
 
-
-=== NLI and machine translation. 
-Why is NLI important ? It's a key problem in natural language understanding. Many other NLU problems can be reduced to NLI: such as summarization 
-(given a piece of text and a suggested summary, does the former entail the latter), information extraction (does the text entail the extracted fact), 
-question answering (does the data source entail a given question and answer pair) as well as machine machine translation 
-(does a phrase in language A entail its given translation in language B and vice versa).
-Why is it mentioned in the same category as machine translation? Both can be cast as an alignment problem.  
-
-
-Subsection: Question Answering 
-
-
-
-Subsection: Reading comprehension, memory and attention. 
-
-
-Subsection: Dialogue and chatbots! 
-
-
-So why hs DL been more successful in ASR and vision than NLP/NLU? That's a topic for another post! 
 
 
 ==== References
-[1] https://arxiv.org/pdf/1607.01759v2.pdf[Bag of Tricks for Efficient Text Classification], A. Joulin, E. Grave, P. Bojanowski, T. Mikolov 
-[2] https://github.com/facebookresearch/fastText[Facebook's fastText on Github]
-[3] http://arxiv.org/abs/1608.04207v1[Fine-grained Analysis of Sentence Embeddings Using Auxiliary Prediction Tasks], Yossi Adi, Einat Kermany, Yonatan Belinkov, Ofer Lavi, Yoav Goldberg
-[4] http://arxiv.org/pdf/1606.02858v2.pdf[A Thorough Examination of the CNN/Daily Mail Reading Comprehension Task], Danqi Chen, Jason Bolton, Christopher D. Manning
-[5] http://arxiv.org/pdf/1606.01933v1.pdf[A Decomposable Attention Model for Natural Language Inference], Ankur P. Parikh, Oscar Täckström, Dipanjan Das, Jakob Uszkoreit
-[6] Karpathy
+[1] https://arxiv.org/pdf/1607.01759v2.pdf[Bag of Tricks for Efficient Text Classification], A. Joulin, E. Grave, P. Bojanowski, T. Mikolov
+
+[2] https://github.com/facebookresearch/fastText[Facebook's fastText] on Github. 
+
+[3] http://arxiv.org/abs/1608.04207v1[Fine-grained Analysis of Sentence Embeddings Using Auxiliary Prediction Tasks], Y. Adi, E. Kermany, Y. Belinkov, O. Lavi, Y. Goldberg
+
+[4] http://arxiv.org/pdf/1606.02858v2.pdf[A Thorough Examination of the CNN/Daily Mail Reading Comprehension Task], D. Chen, J. Bolton, C. D. Manning
+
+[5] http://arxiv.org/pdf/1606.01933v1.pdf[A Decomposable Attention Model for Natural Language Inference], A. P. Parikh, O. Täckström, D. Das, J. Uszkoreit
+
+[6] [Andrej Karpathy on human vs. machine image classification accuracy](https://plus.google.com/+AndrejKarpathy/posts/dwDNcBuWTWf)
+
 [7] Word2Vec
+
 [8] Glove
-[9] Smart Reply
-[10] http://www.foldl.me/2016/solving-language/
+
+[9] [Google Smart Reply](https://gmail.googleblog.com/2015/11/computer-respond-to-this-email.html)
+
+[10] https://arxiv.org/abs/1602.02410v2[Exploring the limits of language modeling], R. Jozefowicz, O. Vinyals, M. Schuster, N. Shazeer, Yonghui Wu.
 
  
 

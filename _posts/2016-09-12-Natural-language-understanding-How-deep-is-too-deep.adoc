@@ -38,9 +38,10 @@ actually do more than that: they seek to _learn the optimal representation_ (rea
 words, sentences, paragraphs, what have you...) so as to minimize some loss function on the training set. That learned representation is a byproduct that can sometimes be more valuable than the main task! For instance, in https://en.wikipedia.org/wiki/Word2vec[Word2Vec], the task is predicting a word based on the words around it (or vice-versa), which admittedly is not a very common problem in reality. However, as a byproduct, we get word vectors with some interesting semantic properties (e.g., analogies such as the famous _king - man + woman = queen_ https://www.technologyreview.com/s/541356/king-man-woman-queen-the-marvelous-mathematics-of-computational-linguistics/[example]) that become handy in text classification and other application. 
 * Deep neural networks such as RNNs/LSTMs or ConvNets. Let us discuss this option in more detail below. 
 
-Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for _sequences of arbitrary length_. The basic RNN unit works by injesting and outputing one symbol at a time, where last timestep's output is a new timestep's input - see an illustration below. In other words, RNN units have memory short-term memory! Which makes particularly attractive tool for modeling text. 
+Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for _sequences of arbitrary length_. The basic RNN unit works by injesting and outputing one symbol at a time, where last timestep's output is also a new timestep's input - see the illustration below. In other words, RNN units have memory short-term memory! Which makes particularly attractive tool for modeling text. 
 
-image::rnn-unrolled-colah.png[An unrolled recurrent neural network, image courtesy of Chris Olah]
+image::rnn-unrolled-colah.png[title="An unrolled recurrent neural network, image courtesy of Chris Olah"] 
+
 
 However, in practice, RNNs can be hard to train and for small to medium-sized training datasest: again, good old RF or LR can often deliver similar or even superior 
 performance at a lower computational cost. Even in the Deep Learning category, RNNs have a strong competitor in Convolutional Neural Nets 

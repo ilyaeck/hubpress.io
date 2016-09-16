@@ -1,0 +1,28 @@
+= Deep Language Modeling: Part II 
+
+
+
+
+
+
+
+
+=== NLI and machine translation. 
+Why is NLI important ? It's a key problem in natural language understanding. Many other NLU problems can be reduced to NLI: such as summarization 
+(given a piece of text and a suggested summary, does the former entail the latter), information extraction (does the text entail the extracted fact), 
+question answering (does the data source entail a given question and answer pair) as well as machine machine translation 
+(does a phrase in language A entail its given translation in language B and vice versa).
+Why is it mentioned in the same category as machine translation? Both can be cast as an alignment problem.  
+
+
+=== Question Answering 
+
+
+
+=== Reading comprehension, memory and attention. 
+
+
+=== Dialogue and chatbots! 
+
+
+So why hs DL been more successful in ASR and vision than NLP/NLU? That's a topic for another post! 

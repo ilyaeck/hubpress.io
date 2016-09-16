@@ -8,7 +8,8 @@
   "site": {
     "title": "IE ",
     "description": "Ilya Eckstein's blog",
-    "postsPerPage": "2"
+    "postsPerPage": "2",
+    "googleAnalytics": "GA UA-26080673-2"
   },
   "socialnetwork": {
     "email": "",

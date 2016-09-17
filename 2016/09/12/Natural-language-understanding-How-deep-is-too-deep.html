@@ -38,9 +38,9 @@
     <link href="//fonts.googleapis.com/" rel="dns-prefetch">
     <link href="//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Open+Sans:700,400&subset=latin,latin-ext" rel="stylesheet">
 
-    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/main.min.css?v=1474068737924"/>
-    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/custom.css?v=1474068737924"/>
-    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/asciidoctor-foundation.css?v=1474068737924"/>
+    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/main.min.css?v=1474080105396"/>
+    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/custom.css?v=1474080105396"/>
+    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/asciidoctor-foundation.css?v=1474080105396"/>
 
 
 
@@ -70,7 +70,7 @@
       GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
     </script>
 
-    <script src="//ilyaeck.github.io/themes/ghostium/assets/js/head-scripts.min.js?v=1474068737924"></script>
+    <script src="//ilyaeck.github.io/themes/ghostium/assets/js/head-scripts.min.js?v=1474080105396"></script>
 
     <link rel="canonical" href="https://ilyaeck.github.io/2016/09/12/Natural-language-understanding-How-deep-is-too-deep.html" />
     <meta name="referrer" content="origin" />
@@ -78,14 +78,14 @@
     <meta property="og:site_name" content="IE " />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Natural language understanding: How deep is too deep?" />
-    <meta property="og:description" content="TL;DR Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily! Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title Bag of Tricks for Efficient Text Classification [1], promptly catching the NLP community&amp;#8217;s attentuion. Even more intruguingly," />
+    <meta property="og:description" content="TL;DR Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily! Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title Bag of Tricks for Efficient Text Classification [1], promptly catching the NLP community&amp;#8217;s attention. Even more intriguingly," />
     <meta property="og:url" content="https://ilyaeck.github.io/2016/09/12/Natural-language-understanding-How-deep-is-too-deep.html" />
     <meta property="article:tag" content="Deep Learning" />
     <meta property="article:tag" content=" NLP" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Natural language understanding: How deep is too deep?" />
-    <meta name="twitter:description" content="TL;DR Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily! Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title Bag of Tricks for Efficient Text Classification [1], promptly catching the NLP community&amp;#8217;s attentuion. Even more intruguingly," />
+    <meta name="twitter:description" content="TL;DR Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily! Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title Bag of Tricks for Efficient Text Classification [1], promptly catching the NLP community&amp;#8217;s attention. Even more intriguingly," />
     <meta name="twitter:url" content="https://ilyaeck.github.io/2016/09/12/Natural-language-understanding-How-deep-is-too-deep.html" />
     
     <script type="application/ld+json">
@@ -193,14 +193,14 @@ null
 <p><strong>TL;DR</strong> Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily!</p>
 </div>
 <div class="paragraph">
-<p>Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title <em>Bag of Tricks for Efficient Text Classification</em> <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup>, promptly catching the NLP community&#8217;s attentuion. Even more intruguingly, FAIR soon followed up with an open source implementation a.k.a. <em>fastText</em> <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnote_2" title="View footnote.">2</a>]</sup>. In this work (essentially a simple modification of the unsupervised <a href="https://en.wikipedia.org/wiki/Word2vec">Word2Vec</a> algorithm to deal with supervised learning tasks), the authors made a convincing case for the frequent superiority of <em>shallow</em>
-networks - as opposed to deep ones - for common text understandig tasks such as sentence classification, dispelling the myth that "deeper is always better".
+<p>Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title <em>Bag of Tricks for Efficient Text Classification</em> <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup>, promptly catching the NLP community&#8217;s attention. Even more intriguingly, FAIR soon followed up with an open source implementation a.k.a. <em>fastText</em> <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnote_2" title="View footnote.">2</a>]</sup>. In this work (essentially a simple modification of the unsupervised <a href="https://en.wikipedia.org/wiki/Word2vec">Word2Vec</a> algorithm to deal with supervised learning tasks), the authors made a convincing case for the frequent superiority of <em>shallow</em>
+networks - as opposed to deep ones - for common text understanding tasks such as sentence classification, dispelling the myth that "deeper is always better".
 Furthermore, this paper is but one example in the recent slew of results casting the "silver bullet" efficacy of complex neural architectures into question for text-related tasks (see some examples here <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnote_3" title="View footnote.">3</a>]</sup>, here <sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnote_4" title="View footnote.">4</a>]</sup> and here <sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnote_5" title="View footnote.">5</a>]</sup>).</p>
 </div>
 <div class="paragraph">
 <p>Surprised? After all, isn&#8217;t Deep Learning a new disruptive force in AI, shown beyond doubt to be clearly superior to prior "shallow"
 learning approaches? Well, it depends who you ask. Ask a Computer Vision or a Speech Recognition expert, and you&#8217;ll get and enthusiastic Yes!
-In computer vision, novel DL archirectures (such as <a href="https://arxiv.org/abs/1409.1556">VGG</a>, <a href="https://arxiv.org/abs/1409.4842">GoogleNet</a>, <a href="https://arxiv.org/abs/1512.00567">Inception</a>, etc.) have delivered extremely impressive
+In computer vision, novel DL architectures (such as <a href="https://arxiv.org/abs/1409.1556">VGG</a>, <a href="https://arxiv.org/abs/1409.4842">GoogleNet</a>, <a href="https://arxiv.org/abs/1512.00567">Inception</a>, etc.) have delivered extremely impressive
 results on benchmarks such as <a href="http://image-net.org/">ImageNet</a> and <a href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR</a>, even defying expectations of some computer vision DL champions <sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnote_6" title="View footnote.">6</a>]</sup>. In speech, commercial heavyweights such as Google and Baidu have longs since switch to DL architectures. It should only be natural to expect, then, to see the
 same trend in NLP/NLU, correct? Well, not so fast.</p>
 </div>
@@ -219,7 +219,7 @@ popular DL libraries such as <a href="https://www.tensorflow.org/">TensorFlow</a
 <h3 id="__ext_classification">Тext Classification</h3>
 <div class="paragraph">
 <p>Clearly, text classification is a common task with plenty of applications: search, user intent determination, sentiment analysis, topic modeling
-(slightly different, but close), seqeuence labeling (related), etc.
+(slightly different, but close), sequence labeling (related), etc.
 For text classification, we typically have 3 options:</p>
 </div>
 <div class="ulist disc">
@@ -229,7 +229,7 @@ For text classification, we typically have 3 options:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: well understood models, relatively intutitive features you can control, speed.</p>
+<p>Pros: well understood models, relatively intuititive features you can control, speed.</p>
 </li>
 <li>
 <p>Cons: the features are "semantically blind": we&#8217;ll miss any words or synonyms that are not in the training set. Also, to push performance, manual feature engineering may be required.</p>
@@ -262,7 +262,7 @@ words, sentences, paragraphs, what have you&#8230;&#8203;) so as to minimize som
 </ul>
 </div>
 <div class="paragraph">
-<p>Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for <em>sequences of arbitrary length</em>. The basic RNN unit works by injesting and outputing one symbol at a time, where last timestep&#8217;s output is also a new timestep&#8217;s input - see the illustration below. In other words, RNN units have memory short-term memory! Which makes particularly attractive tool for modeling text.</p>
+<p>Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for <em>sequences of arbitrary length</em>. The basic RNN unit works by injesting and outputting one symbol at a time, where last time step&#8217;s output is also a new time step&#8217;s input - see the illustration below. In other words, RNN units have memory short-term memory! Which makes particularly attractive tool for modeling text.</p>
 </div>
 <div class="imageblock center">
 <div class="content">
@@ -271,7 +271,7 @@ words, sentences, paragraphs, what have you&#8230;&#8203;) so as to minimize som
 <div class="title">Figure 1. An unrolled recurrent neural network, image courtesy of Chris Olah</div>
 </div>
 <div class="paragraph">
-<p>However, in practice, RNNs can be hard to train and for small to medium-sized training datasest: again, good old RF or LR can often deliver similar or even superior
+<p>However, in practice, RNNs can be hard to train and for small to medium-sized training dataset: again, good old RF or LR can often deliver similar or even superior
 performance at a lower computational cost. Even in the Deep Learning category, RNNs have a strong competitor in Convolutional Neural Nets
 (a.k.a. ConvNets or CNNs) - just as long as your text can be treated as fixed length sequences, making them a suitable approach to represent and classify tweets, text messages, short user reviews, etc. Still, it&#8217;s too early to dismiss RNNs and their variants entirely. Where these networks (and particularly their more advanced variant called <a href="https://en.wikipedia.org/wiki/Long_short-term_memory">Long-Short Memory Networks or LSTMs</a>) begin to shine are other NLU tasks that often involve prediction (i.e., generative in nature) rather than "just" classification, a fundamentally discriminative task. So, let us look beyond classification.</p>
 </div>
@@ -406,7 +406,7 @@ For text prediction, a.k.a generative tasks, give Deep Learning a good look. For
         hljs.initHighlightingOnLoad();
       </script>
 
-    <script src="//ilyaeck.github.io/themes/ghostium/assets/js/foot-scripts.min.js?v=1474068737924"></script>
+    <script src="//ilyaeck.github.io/themes/ghostium/assets/js/foot-scripts.min.js?v=1474080105396"></script>
 
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -24,7 +24,7 @@ Clearly, text classification is a common task with plenty of applications: searc
 For text classification, we typically have 3options: 
 
 [disc]
-* Good old classifiers such as Random Forests (RF) or Logistic Regression (LR). In this case, we'll typically use a Bag of Word (BoW) representation such as TF/IDF. 
+* "Good old" classifiers such as Random Forests (RF) or Logistic Regression (LR). In this case, we'll typically use a Bag of Word (BoW) representation such as TF/IDF. 
 ** Pros: well understood models, relatively intuititive features you can control, speed. 
 ** Cons: the features are "semantically blind": we'll miss any words or synonyms that are not in the training set. Also, to push performance, manual feature engineering may be required.  
 * Shallow Neural Networks (NNs) such as Facebook's https://github.com/facebookresearch/fastText[fastText].
@@ -41,7 +41,7 @@ Recurrent Neural Networks (RNNs) are category of NN-based models designed specif
 image::rnn-unrolled-colah.png[rnn, 600, role="center" title="An unrolled recurrent neural network, image courtesy of Chris Olah"] 
 
 
-However, in practice, RNNs can be hard to train and for small to medium-sized training dataset: again, good old RF or LR can often deliver similar or even superior 
+However, in practice, RNNs can be hard to train and for small to medium-sized training datasets, "good old" methods can often deliver similar or even superior 
 performance at a lower computational cost. Even in the Deep Learning category, RNNs have a strong competitor in Convolutional Neural Nets 
 (a.k.a. ConvNets or CNNs) - just as long as your text can be treated as fixed length sequences, making them a suitable approach to represent and classify tweets, text messages, short user reviews, etc. Still, it's too early to dismiss RNNs and their variants entirely. Where these networks (and particularly their more advanced variant called https://en.wikipedia.org/wiki/Long_short-term_memory[Long-Short Memory Networks or LSTMs]) begin to shine are other NLU tasks that often involve prediction (i.e., generative in nature) rather than "just" classification, a fundamentally discriminative task. So, let us look beyond classification. 
 

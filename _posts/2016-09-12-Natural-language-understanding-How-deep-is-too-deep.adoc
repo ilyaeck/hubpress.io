@@ -3,13 +3,13 @@
 
 *TL;DR* Is Deep Learning always the best tool for Natural Language Understanding tasks? Not necessarily!
 
-Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title _Bag of Tricks for Efficient Text Classification_ footnote:[https://arxiv.org/pdf/1607.01759v2.pdf[Bag of Tricks for Efficient Text Classification], , A. Joulin, E. Grave, P. Bojanowski, T. Mikolov], promptly catching the NLP community's attentuion. Even more intruguingly, FAIR soon followed up with an open source implementation a.k.a. _fastText_ footnote:[https://github.com/facebookresearch/fastText[Facebook's fastText]]. In this work (essentially a simple modification of the unsupervised https://en.wikipedia.org/wiki/Word2vec[Word2Vec] algorithm to deal with supervised learning tasks), the authors made a convincing case for the frequent superiority of _shallow_
-networks - as opposed to deep ones - for common text understandig tasks such as sentence classification, dispelling the myth that "deeper is always better".  
+Recently, a paper from Facebook AI Research (FAIR) appeared on arXiv, under the intriguing title _Bag of Tricks for Efficient Text Classification_ footnote:[https://arxiv.org/pdf/1607.01759v2.pdf[Bag of Tricks for Efficient Text Classification], , A. Joulin, E. Grave, P. Bojanowski, T. Mikolov], promptly catching the NLP community's attention. Even more intriguingly, FAIR soon followed up with an open source implementation a.k.a. _fastText_ footnote:[https://github.com/facebookresearch/fastText[Facebook's fastText]]. In this work (essentially a simple modification of the unsupervised https://en.wikipedia.org/wiki/Word2vec[Word2Vec] algorithm to deal with supervised learning tasks), the authors made a convincing case for the frequent superiority of _shallow_
+networks - as opposed to deep ones - for common text understanding tasks such as sentence classification, dispelling the myth that "deeper is always better".  
 Furthermore, this paper is but one example in the recent slew of results casting the "silver bullet" efficacy of complex neural architectures into question for text-related tasks (see some examples here footnote:[http://arxiv.org/abs/1608.04207v1[Fine-grained Analysis of Sentence Embeddings Using Auxiliary Prediction Tasks], Y. Adi, E. Kermany, Y. Belinkov, O. Lavi, Y. Goldberg], here footnote:[http://arxiv.org/pdf/1606.02858v2.pdf[A Thorough Examination of the CNN/Daily Mail Reading Comprehension Task], D. Chen, J. Bolton, C. D. Manning] and here footnote:[http://arxiv.org/pdf/1606.01933v1.pdf[A Decomposable Attention Model for Natural Language Inference], A. P. Parikh, O. Täckström, D. Das, J. Uszkoreit]). 
 
 Surprised? After all, isn't Deep Learning a new disruptive force in AI, shown beyond doubt to be clearly superior to prior "shallow"
 learning approaches? Well, it depends who you ask. Ask a Computer Vision or a Speech Recognition expert, and you'll get and enthusiastic Yes!
-In computer vision, novel DL archirectures (such as https://arxiv.org/abs/1409.1556[VGG], https://arxiv.org/abs/1409.4842[GoogleNet], https://arxiv.org/abs/1512.00567[Inception], etc.) have delivered extremely impressive 
+In computer vision, novel DL architectures (such as https://arxiv.org/abs/1409.1556[VGG], https://arxiv.org/abs/1409.4842[GoogleNet], https://arxiv.org/abs/1512.00567[Inception], etc.) have delivered extremely impressive 
 results on benchmarks such as http://image-net.org/[ImageNet] and https://www.cs.toronto.edu/~kriz/cifar.html[CIFAR], even defying expectations of some computer vision DL champions footnote:[https://plus.google.com/+AndrejKarpathy/posts/dwDNcBuWTWf[Andrej Karpathy on human vs. machine image classification accuracy]]. In speech, commercial heavyweights such as Google and Baidu have longs since switch to DL architectures. It should only be natural to expect, then, to see the 
 same trend in NLP/NLU, correct? Well, not so fast. 
 
@@ -22,12 +22,12 @@ So - you ask - isn't that enough? Where do I sign up?! Well, dear friend: if you
 
 === Тext Classification
 Clearly, text classification is a common task with plenty of applications: search, user intent determination, sentiment analysis, topic modeling 
-(slightly different, but close), seqeuence labeling (related), etc. 
+(slightly different, but close), sequence labeling (related), etc. 
 For text classification, we typically have 3 options: 
 
 [disc]
 * Good old classifiers such as Random Forests (RF) or Logistic Regression (LR). In this case, we'll typically use a Bag of Word (BoW) representation such as TF/IDF. 
-** Pros: well understood models, relatively intutitive features you can control, speed. 
+** Pros: well understood models, relatively intuititive features you can control, speed. 
 ** Cons: the features are "semantically blind": we'll miss any words or synonyms that are not in the training set. Also, to push performance, manual feature engineering may be required.  
 * Shallow Neural Networks (NNs) such as Facebook's https://github.com/facebookresearch/fastText[fastText].
 ** Pros: still fast, no feature engineering, possibly inherits Word2Vec's nice semantic properties (more on that below). 
@@ -38,12 +38,12 @@ actually do more than that: they seek to _learn the optimal representation_ (rea
 words, sentences, paragraphs, what have you...) so as to minimize some loss function on the training set. That learned representation is a byproduct that can sometimes be more valuable than the main task! For instance, in https://en.wikipedia.org/wiki/Word2vec[Word2Vec], the task is predicting a word based on the words around it (or vice-versa), which admittedly is not a very common problem in reality. However, as a byproduct, we get word vectors with some interesting semantic properties (e.g., analogies such as the famous _king - man + woman = queen_ https://www.technologyreview.com/s/541356/king-man-woman-queen-the-marvelous-mathematics-of-computational-linguistics/[example]) that become handy in text classification and other application. 
 * Deep neural networks such as RNNs/LSTMs or ConvNets. Let us discuss this option in more detail below. 
 
-Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for _sequences of arbitrary length_. The basic RNN unit works by injesting and outputing one symbol at a time, where last timestep's output is also a new timestep's input - see the illustration below. In other words, RNN units have memory short-term memory! Which makes particularly attractive tool for modeling text. 
+Recurrent Neural Networks (RNNs) are category of NN-based models designed specifically for _sequences of arbitrary length_. The basic RNN unit works by injesting and outputting one symbol at a time, where last time step's output is also a new time step's input - see the illustration below. In other words, RNN units have memory short-term memory! Which makes particularly attractive tool for modeling text. 
 
 image::rnn-unrolled-colah.png[rnn, 600, role="center" title="An unrolled recurrent neural network, image courtesy of Chris Olah"] 
 
 
-However, in practice, RNNs can be hard to train and for small to medium-sized training datasest: again, good old RF or LR can often deliver similar or even superior 
+However, in practice, RNNs can be hard to train and for small to medium-sized training dataset: again, good old RF or LR can often deliver similar or even superior 
 performance at a lower computational cost. Even in the Deep Learning category, RNNs have a strong competitor in Convolutional Neural Nets 
 (a.k.a. ConvNets or CNNs) - just as long as your text can be treated as fixed length sequences, making them a suitable approach to represent and classify tweets, text messages, short user reviews, etc. Still, it's too early to dismiss RNNs and their variants entirely. Where these networks (and particularly their more advanced variant called https://en.wikipedia.org/wiki/Long_short-term_memory[Long-Short Memory Networks or LSTMs]) begin to shine are other NLU tasks that often involve prediction (i.e., generative in nature) rather than "just" classification, a fundamentally discriminative task. So, let us look beyond classification. 
 

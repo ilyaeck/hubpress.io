@@ -38,9 +38,9 @@
     <link href="//fonts.googleapis.com/" rel="dns-prefetch">
     <link href="//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Open+Sans:700,400&subset=latin,latin-ext" rel="stylesheet">
 
-    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/main.min.css?v=1476223082305"/>
-    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/custom.css?v=1476223082305"/>
-    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/asciidoctor-foundation.css?v=1476223082305"/>
+    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/main.min.css?v=1476223898398"/>
+    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/custom.css?v=1476223898398"/>
+    <link rel="stylesheet" href="//ilyaeck.github.io/themes/ghostium/assets/css/asciidoctor-foundation.css?v=1476223898398"/>
 
 
 
@@ -70,7 +70,7 @@
       GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
     </script>
 
-    <script src="//ilyaeck.github.io/themes/ghostium/assets/js/head-scripts.min.js?v=1476223082305"></script>
+    <script src="//ilyaeck.github.io/themes/ghostium/assets/js/head-scripts.min.js?v=1476223898398"></script>
 
     <link rel="canonical" href="https://ilyaeck.github.io/2016/09/26/Product-first-Research.html" />
     <meta name="referrer" content="origin" />
@@ -194,7 +194,7 @@ null
 <p><strong>Better dialogue  models</strong>		Strong language models are necessary but not sufficient for the creation of  powerful dialogue models (intuition: dialogue is a protocol to communicate information, so it&#8217;s not just a statistical problem). For instance, sequence-to-sequence networks have been shown to work well machine translation but not in dialogue. In my view, a more promising approach is to learn higher level, language-independent discourse models <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup> <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnote_2" title="View footnote.">2</a>]</sup>  (again, from real interactions with real users), which can also be combined with language models in differentiable end-to-end architectures. Specifically, since some discriminative discourse models are already available, we may be able to train rich generative dialogue models by using GANs (Generative Adversarial Networks) and/or Reinforcement Learning.</p>
 </div>
 <div class="paragraph">
-<p><strong>Reinforcement Learning (RL) of dialogue</strong>	Rather than learning from prior conversations, a potentially more potent paradigm is to learn while conversing with users. Beyond computational aspects, this approach requires devising a user experience where users are incentivized to make the agent understand them, and the agent is rewarded when that happens. Still, combined UX + ML challenge is well worth the effort, as it has the potential to radically transform language / dialogue learning with the users’ help, while keeping them motivated and rewarded in the process!</p>
+<p><strong>Reinforcement Learning (RL) of dialogue</strong>	Rather than learning from prior conversations, a potentially more potent paradigm is to learn <em>while</em> conversing with users. Beyond computational aspects, this approach also requires devising a user experience where users are incentivized to make the agent understand them, and the agent is rewarded when in succeeds in the interpretation task. In other words, dialogue RL involves mcahine learning and product challenges that may seem quite daunting. Still, it is well worth the effort: imagine a talking to a bot that actually becomes smarter in the course of - and thanks to - the conversation! In summary, RL has the potential to radically transform language &amp; dialogue learning with the users’ help, while keeping them motivated and rewarded in the process!</p>
 </div>
 <div class="paragraph">
 <p>Now that the goals are clear, let&#8217;s get to work!</p>
@@ -286,7 +286,7 @@ null
         hljs.initHighlightingOnLoad();
       </script>
 
-    <script src="//ilyaeck.github.io/themes/ghostium/assets/js/foot-scripts.min.js?v=1476223082305"></script>
+    <script src="//ilyaeck.github.io/themes/ghostium/assets/js/foot-scripts.min.js?v=1476223898398"></script>
 
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
